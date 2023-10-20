@@ -1,0 +1,54 @@
+const https = require('https');
+
+function makeHttpGetRequest(url, callback) {
+  https.get(url, (response) => {
+    let data = '';
+
+    response.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    response.on('end', () => {
+      callback(null, data);
+    });
+  }).on('error', (err) => {
+    callback(err, null);
+  });
+}
+
+// Usage example:
+const url = 'https://example.com'; // Replace with your desired URL
+makeHttpGetRequest(url, (err, responseBody) => {
+  if (err) {
+    console.error(`Error making the HTTP request: ${err}`);
+  } else {
+    console.log(responseBody); // The response body as a string
+  }
+});
+const https = require('https');
+
+function makeHttpGetRequest(url, callback) {
+  https.get(url, (response) => {
+    let data = '';
+
+    response.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    response.on('end', () => {
+      callback(null, data);
+    });
+  }).on('error', (err) => {
+    callback(err, null);
+  });
+}
+
+// Usage example:
+const url = 'https://example.com'; // Replace with your desired URL
+makeHttpGetRequest(url, (err, responseBody) => {
+  if (err) {
+    console.error(`Error making the HTTP request: ${err}`);
+  } else {
+    console.log(responseBody); // The response body as a string
+  }
+});
